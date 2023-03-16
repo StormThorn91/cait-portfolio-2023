@@ -1,0 +1,26 @@
+.nav_container {
+    margin-top: 5px;
+    
+}
+
+.icon {
+    padding: 3px;
+    width: 5vw;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+    .nav_container {
+        margin-top: 2vh;
+        
+    }
+
+    .icon {
+        width: 12vw;
+    }
+
+
+}

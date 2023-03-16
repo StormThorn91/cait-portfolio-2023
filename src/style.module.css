@@ -1,0 +1,24 @@
+.menu_bar {
+    background-color: #f8f3f3;
+    height: 10vh;
+}
+
+.menu_bar_night {
+    background-color: #a7a2a2;
+    height: 10vh;
+}
+
+
+.container {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    background-color: #FFF;
+}
+
+.container_night {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    background-color: #655070;
+}

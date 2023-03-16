@@ -1,0 +1,64 @@
+.switch {
+    width: 60px;
+    height: 34px;
+    position: relative;
+    float: right;
+    margin-right: 5px;
+  }
+  
+
+.toggle_thumb_night {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #475569;
+    border-radius: 40px;
+    cursor: pointer;
+  }
+
+  .toggle_thumb_day {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(189, 241, 245);
+    border-radius: 40px;
+    cursor: pointer;
+  }
+
+
+  .toggle_thumb:before {
+    content: "☀";
+    height: 26px;
+    width: 26px;
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: .4s all ease;
+    padding-left: 2px;
+  }
+
+  .checkbox:checked + .toggle_thumb:before {
+    transform: translateX(26px);
+    content: "🌑";
+    padding-left: 2px;
+    background-color: transparent;
+  }
+  
+  
+  .checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }

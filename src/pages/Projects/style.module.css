@@ -1,0 +1,23 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url("../../assets/fonts/LondrinaSolid-Regular.ttf");
+  }
+
+  .bg_night {
+    height: 40vh;
+  }
+
+  .container {
+    display: flex;
+    direction: column;
+    justify-content: center;
+  }
+
+  .title {
+    font-family: myFirstFont;
+    color: black;
+  }
+  .title_night {
+    font-family: myFirstFont;
+    color: #fff;
+  }

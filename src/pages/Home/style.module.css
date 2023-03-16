@@ -1,0 +1,18 @@
+.banner {
+    margin-top: 100px;
+}
+.banner_img {
+    width: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+    .banner {
+        margin-top: 30vh;
+    }
+    
+    .banner_img {
+        width: 100%;
+    }
+
+
+}
