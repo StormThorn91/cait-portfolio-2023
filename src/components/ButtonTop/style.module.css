@@ -1,0 +1,29 @@
+.button {
+    bottom:80px;
+    cursor: pointer;
+    z-index: 2;
+    
+}
+
+.arrow {
+    border: 1px solid black;
+    border-radius: 50px;
+    padding: 2vh;
+}
+
+.arrow:hover {
+    background-color: black;
+    color: white;
+}
+
+.arrow_night {
+    border: 1px solid white;
+    border-radius: 50px;
+    padding: 2vh;
+    color: white
+}
+
+.arrow_night:hover {
+    background-color: white;
+    color: black;
+}

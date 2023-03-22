@@ -8,6 +8,13 @@
     height: 10vh;
 }
 
+.logo {
+    height: 7vh;
+    float: left;
+    margin-left: 6px;
+    margin-top: 12px;
+}
+
 
 .container {
     display: flex;

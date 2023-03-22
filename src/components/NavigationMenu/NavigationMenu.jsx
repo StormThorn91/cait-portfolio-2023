@@ -1,19 +1,14 @@
 import style from "./style.module.css"
-import { useNavigate } from "react-router-dom"
 
-export function NavigationMenu({image, navId}) {
-    const navigate = useNavigate();
+export function NavigationMenu({image, navId, onClick}) {
     
     const handleOnClick = (id) => {
-        if(id === "project") {
-            navigate("/projects")
-        }
+        onClick(id)
     }
 
-    console.log(navId);
     return (
         <div className={`${style.nav_container}`}>
-            <img src={image} id={navId} onClick={() => handleOnClick(navId)} className={style.icon} />
+            <img src={image} id={navId} alt={navId} onClick={() => handleOnClick(navId)} className={style.icon} />
         </div>
     )
 }

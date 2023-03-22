@@ -1,0 +1,43 @@
+.list:hover {
+    overflow: overlay;
+}
+
+.list {
+    display: flex;
+    width: 100vw;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+    
+
+}
+.list_desktop {
+    justify-content: center;
+}
+
+.project_card_item {
+    margin-right: 10px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.folder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.folder_item {
+    width: 25%;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+    height: 5px
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(0, 0, 0, 0.61);
+    border-radius: 10px;
+}

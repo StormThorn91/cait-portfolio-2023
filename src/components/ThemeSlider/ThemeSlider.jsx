@@ -25,8 +25,6 @@ export function ThemeSlider(props) {
         }
     }
 
-    console.log(checked)
-
     return (
         <div>
             <label className={`${style.switch}`}>

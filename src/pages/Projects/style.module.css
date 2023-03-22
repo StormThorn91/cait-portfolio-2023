@@ -1,5 +1,5 @@
 @font-face {
-    font-family: myFirstFont;
+    font-family: HeaderFont;
     src: url("../../assets/fonts/LondrinaSolid-Regular.ttf");
   }
 
@@ -7,17 +7,26 @@
     height: 40vh;
   }
 
-  .container {
-    display: flex;
-    direction: column;
-    justify-content: center;
-  }
-
   .title {
-    font-family: myFirstFont;
+    margin-top: 4vh;
+    font-family: HeaderFont;
     color: black;
+    font-size: 10vh;
+    margin-bottom: 5vh;
   }
   .title_night {
-    font-family: myFirstFont;
+    margin-top: 4vh;
+    font-family: HeaderFont;
     color: #fff;
+    font-size: 10vh;
+    margin-bottom: 5vh;
   }
+  .button {
+    bottom: 30px;
+  }
+
+  .bottom {
+    height: 100vh
+  }
+
+

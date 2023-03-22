@@ -1,0 +1,26 @@
+@font-face {
+    font-family: ProjectFont;
+    src: url("../../assets/fonts/Lato-Regular.ttf");
+  }
+
+.container {
+    margin: auto;       
+}
+
+.folder{
+    width: 30vh;
+    height: 10vh;
+}
+
+.folder_day {
+    color: black;
+}
+
+.folder_night {
+    color: white;
+}
+
+.file_name {
+    font-family: ProjectFont;
+}
+
