@@ -8,7 +8,7 @@
     position: absolute;
     margin-top: -40px;
     height: 40px;
-    width: 300px;
+    width: 350px;
     padding-left: 20px;
     padding-top: 8px;
     background-color: rgba(0, 0, 0, 0.8);
@@ -19,5 +19,6 @@
 
 .image {
     border-radius: 20px;
-    width: 300px;
+    width: 350px;
+    height: 200px;
 }

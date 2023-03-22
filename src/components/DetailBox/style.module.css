@@ -1,3 +1,70 @@
+@font-face {
+    font-family: TitleFont;
+    src: url("../../assets/fonts/LondrinaSolid-Regular.ttf");
+  }
+
+  @font-face {
+    font-family: DetailsFont;
+    src: url("../../assets/fonts/Lato-Regular.ttf");
+  }
+
+  .project_container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    overflow: auto;
+  }
+
+  .project_title {
+    font-family: HeaderFont;
+    color: black;
+    font-size: 10vh;
+  }
+  .project_title_night {
+    font-family: HeaderFont;
+    color: #fff;
+    font-size: 10vh;
+  }
+
+  .project_content {
+    font-family: DetailsFont;
+    color: black;
+    font-size: 5vh;
+  }
+
+  .project_content_night {
+    font-family: DetailsFont;
+    color: #fff;
+    font-size: 3vh;
+  }
+
+  .url {
+    font-family: DetailsFont;
+    color: black;
+    font-size: 2vh;
+  }
+
+  .url_night {
+    font-family: DetailsFont;
+    color: #fff;
+    font-size: 2vh;
+  }
+
+  .url:hover {
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .url_night:hover {
+    cursor: pointer;
+    color: black;
+  }
+
+  .project_image {
+    width: 90vh;
+  }
+
 .container {
     width: 30vw;
     height: 50vh;
@@ -108,3 +175,26 @@
     color: white;
 }
 
+@media only screen and (max-width: 900px) {
+    .project_title {
+        font-size: 7vh;
+      }
+      .project_title_night {
+        font-size: 7vh;
+      }
+    
+      .project_content {
+        font-size: 2vh;
+      }
+    
+      .project_content_night {
+        font-size: 2vh;
+      }
+
+      .project_image {
+        margin-top: 5vh;
+        width: 100%;
+      }
+
+
+}
