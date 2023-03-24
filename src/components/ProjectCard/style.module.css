@@ -1,3 +1,8 @@
+@font-face {
+    font-family: TitleFont;
+    src: url("../../assets/fonts/LondrinaSolid-Regular.ttf");
+  }
+
 .container {
     cursor: pointer;
     position: relative;
@@ -15,6 +20,7 @@
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     color: white;
+    font-family: TitleFont;
 }
 
 .image {

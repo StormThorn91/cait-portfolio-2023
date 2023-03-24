@@ -5,7 +5,7 @@ export function ProjectList({ projectList, onClickItem }) {
     const touch = useSelector((store) => store.touchSlice.touch);
     return (
         <div>
-            <div className={`${style.list} ${(projectList > 4 ? null : style.list_desktop) | touch ? null : style.list_desktop}`}>
+            <div className={`${style.list} ${(projectList.length > 3 ? null : style.list_desktop) | touch ? null : style.list_desktop}`}>
                 <div className={style.project_card_item}>
                     {
                         projectList.map((project, index) => {

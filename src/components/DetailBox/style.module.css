@@ -4,6 +4,11 @@
   }
 
   @font-face {
+    font-family: PositionFont;
+    src: url("../../assets/fonts/LexendTera-Regular.ttf");
+  }
+
+  @font-face {
     font-family: DetailsFont;
     src: url("../../assets/fonts/Lato-Regular.ttf");
   }
@@ -20,35 +25,47 @@
     font-family: HeaderFont;
     color: black;
     font-size: 10vh;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   .project_title_night {
     font-family: HeaderFont;
     color: #fff;
     font-size: 10vh;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .project_content {
     font-family: DetailsFont;
     color: black;
-    font-size: 5vh;
+    font-size: 3vh;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .project_content_night {
     font-family: DetailsFont;
     color: #fff;
     font-size: 3vh;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .url {
     font-family: DetailsFont;
     color: black;
     font-size: 2vh;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .url_night {
     font-family: DetailsFont;
     color: #fff;
     font-size: 2vh;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .url:hover {
@@ -63,6 +80,8 @@
 
   .project_image {
     width: 90vh;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
 .container {
@@ -133,8 +152,8 @@
     margin-left: 15px;
 }
 
-.btn_close:hover {
-    content: "\00d7";
+.btn_close:hover  {
+    content: "✖";
     color: gray;
     background-color: #ae3d3c;
     cursor: pointer;
@@ -175,26 +194,145 @@
     color: white;
 }
 
+.profile_content {
+    display: flex;
+    padding: 40px;
+}
+
+
+.profile_pic {
+    border-radius: 300px;
+    width: 50vh;
+    margin-top: 30px;
+}
+
+.profile_right {
+    margin-left: 20px;
+}
+
+.profile_name {
+    font-family: TitleFont;
+    font-size: 10vh;
+    margin-bottom: 0;
+}
+
+.profile_position {
+    font-family: PositionFont;
+    font-size: 3vh;
+}
+
+.profile_details {
+  font-family: DetailsFont;
+  text-align: justify;
+}
+
+.cv_link {
+  font-family: DetailsFont;
+  text-align: justify;
+  text-decoration: underline;
+  color: black;
+  text-align: center;
+}
+
+.cv_link:hover {
+  color: white;
+}
+
+.cv_link_night {
+  color: white;
+}
+
+.github {
+  width: 8vh;
+}
+
+.github:hover {
+  cursor: pointer;
+}
+
+
+
 @media only screen and (max-width: 900px) {
+    .detail_box_content {
+        margin-top: 10px;
+        width: 80%;    
+        background-color:transparent;
+    }
+
+
+    .content_container {
+        overflow: auto;
+        height: 1%;
+        
+    }
     .project_title {
         font-size: 7vh;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
       }
       .project_title_night {
         font-size: 7vh;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
       }
     
       .project_content {
         font-size: 2vh;
+        margin-left: 20px;
+        margin-right: 20px;
       }
     
       .project_content_night {
         font-size: 2vh;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      .url {
+        margin-bottom: 40px;
+      }
+
+      .url_night {
+        margin-bottom: 40px;
       }
 
       .project_image {
-        margin-top: 5vh;
-        width: 100%;
+        display: none;
       }
+
+      .profile_content {
+        display: inline-block;
+        justify-content: center;
+        padding: 0;
+        text-align: center;
+        margin: 0;
+
+    }
+
+    .profile_pic {
+      width: 30vh;
+    }
+
+    .profile_right {
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    .profile_name {
+      font-size: 5vh;
+    }
+
+    .profile_position {
+      font-size: 2vh;
+    }
+
+    .profile_details {
+      font-size: 2vh;
+      text-align: center  ;
+    }
+
 
 
 }
