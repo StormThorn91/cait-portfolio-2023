@@ -11,7 +11,7 @@ export function ButtonTop ( {onClick}) {
     return (
         <div>
             <span className={style.button}>
-                <ArrowUp size="50" onClick={handleOnclick} className={theme ? style.arrow : style.arrow_night} />
+                <ArrowUp onClick={handleOnclick} className={theme ? style.arrow : style.arrow_night} />
             </span>
         </div>
     );
