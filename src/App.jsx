@@ -11,7 +11,7 @@ import { ThemeSlider } from './components/ThemeSlider/ThemeSlider';
 import { useEffect } from 'react';
 import { setTouch } from './store/touch/touch-slice';
 import { DetailBox } from './components/DetailBox/DetailBox';
-import { setProjectList } from './store/project/project-slice';
+import { setProject, setProjectList } from './store/project/project-slice';
 import { ProjectAPI } from './api/ProjectAPI';
 import { setFinder } from './store/finder/finder-slice';
 import { setContact, setProfile } from './store/details/detailsSlice';
@@ -64,6 +64,13 @@ function App() {
       });
     }
   }, [touch]);
+
+  useEffect(() => {
+        dispatch(setFinder(false));
+        dispatch(setProject(null));
+        dispatch(setProfile(false));
+        dispatch(setContact(false));
+  },[])
 
   return (
     <div className={`row justify-content-center ${theme ? style.container : style.container_night}`}>

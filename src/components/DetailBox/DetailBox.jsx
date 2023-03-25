@@ -12,12 +12,11 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
     const finder = useSelector((store) => store.finderSlice.finder);
     const dispatch = useDispatch();
 
-    const handleClose = (e) => {
+    const handleClose = () => {
         dispatch(setFinder(false));
         dispatch(setProject(null));
         dispatch(setProfile(false));
         dispatch(setContact(false));
-        e.stopPropagation();
     }
 
     const handleGithubButton = () => {
@@ -32,7 +31,7 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
                     <span className={style.btn_min}></span>
                     <span className={style.btn_max}></span>
                 </div>
-                <div className={`${style.content_container} ${theme ? style.content_container_day : style.content_container_night}`}>
+                <div className={`${style.content_container} ${theme ? style.content_container_day : style.content_container_night} ${profileDetails ? style.content_overflow : null}`}>
                     {
                         projectContent &&
                         <div className={style.project_container}>
