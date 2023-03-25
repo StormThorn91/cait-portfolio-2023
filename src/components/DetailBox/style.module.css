@@ -271,7 +271,11 @@
     }
 
     .content_overflow {
-      height: 550px;
+      height: 400px;
+    }
+
+    .content_container::-webkit-scrollbar {
+      display: none;
     }
     
     .project_title {
