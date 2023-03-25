@@ -27,3 +27,12 @@
     background-color: white;
     color: black;
 }
+
+@media only screen and (max-width: 900px) {
+    .button {
+        bottom:100px;
+        cursor: pointer;
+        z-index: 2;
+        
+    }
+}
