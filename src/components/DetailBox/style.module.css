@@ -127,7 +127,6 @@
 .navigation_container {
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
-    background-color: #D3D3D3;
     height: 30px;
     width: 100%;
     display: flex;
@@ -262,12 +261,10 @@
         width: 80%;    
         background-color:#eeeeeeee;
     }
-
-
     .content_container {
         overflow-y: auto;
         overflow-x: hidden;
-        height: 1%;   
+        height: 200px;
     }
 
     .content_overflow {
