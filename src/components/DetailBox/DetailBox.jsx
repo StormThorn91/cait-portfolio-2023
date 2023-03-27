@@ -10,7 +10,6 @@ import { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import * as bootstrap from 'bootstrap'
 import { CheckCircleFill } from 'react-bootstrap-icons'
-import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from "../../constants/constants";
 
 export function DetailBox({ projectContent, contactDetails, profileDetails }) {
     const theme = useSelector((store) => store.themeSlice.theme)
