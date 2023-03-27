@@ -75,7 +75,7 @@ function App() {
   return (
     <div className={`row justify-content-center ${theme ? style.container : style.container_night}`}>
       <div className={theme ? style.menu_bar : style.menu_bar_night}>
-        <img src={logo} alt="Caitlin Logo" className={style.logo} />
+        <img src={logo} alt="Caitlin Logo" onClick={() => {navigate("/")}} className={style.logo} />
         <ThemeSlider />
       </div>
       <div className={style.profile_contact}>

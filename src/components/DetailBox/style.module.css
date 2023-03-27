@@ -13,76 +13,6 @@
     src: url("../../assets/fonts/Lato-Regular.ttf");
   }
 
-  .project_container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    overflow: auto;
-  }
-
-  .project_title {
-    font-family: HeaderFont;
-    color: black;
-    font-size: 10vh;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  .project_title_night {
-    font-family: HeaderFont;
-    color: #fff;
-    font-size: 10vh;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .project_content {
-    font-family: DetailsFont;
-    color: black;
-    font-size: 3vh;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .project_content_night {
-    font-family: DetailsFont;
-    color: #fff;
-    font-size: 3vh;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .url {
-    font-family: DetailsFont;
-    color: black;
-    font-size: 2vh;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .url_night {
-    font-family: DetailsFont;
-    color: #fff;
-    font-size: 2vh;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .url:hover {
-    cursor: pointer;
-    color: #fff;
-  }
-
-  .url_night:hover {
-    cursor: pointer;
-    color: black;
-  }
-
-  .project_image {
-    width: 90vh;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
 
 .container {
     width: 30vw;
@@ -165,6 +95,7 @@
     height: 15px;
     margin-top: 7px;
     margin-left: 5px;
+    display: none;
 }
 
 .btn_max {
@@ -174,6 +105,7 @@
     height: 15px;
     margin-top: 7px;
     margin-left: 5px;
+    display: none;
 }
 
 .content_container {
@@ -191,6 +123,77 @@
 .content_container_night {
     background-color: #505050;
     color: white;
+}
+
+.project_container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.project_title {
+  font-family: HeaderFont;
+  color: black;
+  font-size: 10vh;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.project_title_night {
+  font-family: HeaderFont;
+  color: #fff;
+  font-size: 10vh;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.project_content {
+  font-family: DetailsFont;
+  color: black;
+  font-size: 3vh;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.project_content_night {
+  font-family: DetailsFont;
+  color: #fff;
+  font-size: 3vh;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.url {
+  font-family: DetailsFont;
+  color: black;
+  font-size: 2vh;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.url_night {
+  font-family: DetailsFont;
+  color: #fff;
+  font-size: 2vh;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.url:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+.url_night:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.project_image {
+  width: 90vh;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .profile_content {
@@ -250,9 +253,41 @@
   cursor: pointer;
 }
 
+.contact_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.contact_title {
+  font-family: TitleFont;
+  font-size: 10vh;
+}
+
+.form_input_title {
+  font-family: DetailsFont;
+}
+
+.form_input {
+  width: 100vh;
+}
+
+.submit_btn_container {
+  display: flex;
+  justify-content: center;
+}
+
+.contact_submit_btn {
+  width: 20vh;
+}
 
 
-@media only screen and (max-width: 900px) {
+
+
+
+@media only screen and (max-width: 1000px) {
     .container {
       overflow: hidden;
     }
@@ -276,13 +311,13 @@
     }
     
     .project_title {
-        font-size: 7vh;
-        margin-top: 20px;
+        font-size: 5vh;
+        margin-top: 10px;
         margin-left: 20px;
         margin-right: 20px;
       }
       .project_title_night {
-        font-size: 7vh;
+        font-size: 5vh;
         margin-top: 20px;
         margin-left: 20px;
         margin-right: 20px;
@@ -318,7 +353,6 @@
         padding: 0;
         text-align: center;
         margin: 0;
-
     }
 
     .profile_pic {
@@ -341,9 +375,24 @@
 
     .profile_details {
       font-size: 2vh;
-      text-align: center  ;
+      text-align: center ;
     }
 
+    .content_container_contact {
+      height: 400px;
+  }
 
-
+    .contact_title {
+      margin-top: 10px;
+      font-size: 5vh;
+    }
+    
+    .form_input_title {
+      font-family: DetailsFont;
+      font-size: 2vh;
+    }
+    
+    .form_input {
+      width: 20vh;
+    }
 }
