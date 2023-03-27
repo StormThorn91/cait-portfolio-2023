@@ -47,13 +47,16 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
         let myAlert = document.querySelector('.toast');
         let bsAlert = new bootstrap.Toast(myAlert);
 
+        contactDetails = false;
+
         emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_PUBLIC_KEY)
             .then((result) => {
                 console.log(result.text);
 
                 setTimeout(function () {
                     bsAlert.show();
-                    setLoading(false)
+                    setLoading(false);
+                    contactDetails = true;
                 }, 5000);
 
                 setContactName("");
