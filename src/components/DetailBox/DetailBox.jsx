@@ -56,14 +56,18 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
                 setContactMessage("");
                 setError(false);
 
+                setTimeout(function () {
+                    bsAlert.show();
+                    setLoading(false);
+                }, 5000);
+
             }, (error) => {
                 console.log(error.text);
                 setContactName("");
                 setContactEmail("");
                 setContactMessage("");
                 setError(true);
-            },
-            () => {
+
                 setTimeout(function () {
                     bsAlert.show();
                     setLoading(false);
