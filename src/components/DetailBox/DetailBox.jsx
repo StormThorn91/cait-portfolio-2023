@@ -9,7 +9,7 @@ import dp from "../../assets/images/profile_pic.jpg"
 import { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import * as bootstrap from 'bootstrap'
-import { CheckCircleFill } from 'react-bootstrap-icons'
+import { CheckCircleFill, XCircleFill } from 'react-bootstrap-icons'
 
 export function DetailBox({ projectContent, contactDetails, profileDetails }) {
     const theme = useSelector((store) => store.themeSlice.theme)
@@ -19,6 +19,7 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
     const [contactEmail, setContactEmail] = useState("");
     const [contactMessage, setContactMessage] = useState("");
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -47,27 +48,26 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
         let myAlert = document.querySelector('.toast');
         let bsAlert = new bootstrap.Toast(myAlert);
 
-        contactDetails = false;
-
         emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_PUBLIC_KEY)
             .then((result) => {
                 console.log(result.text);
-
-                setTimeout(function () {
-                    bsAlert.show();
-                    setLoading(false);
-                    contactDetails = true;
-                }, 5000);
-
                 setContactName("");
                 setContactEmail("");
                 setContactMessage("");
+                setError(false);
 
             }, (error) => {
                 console.log(error.text);
                 setContactName("");
                 setContactEmail("");
                 setContactMessage("");
+                setError(true);
+            },
+            () => {
+                setTimeout(function () {
+                    bsAlert.show();
+                    setLoading(false);
+                }, 5000);
             });
     }
 
@@ -88,6 +88,22 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
                 </div>
                 <div className="toast-body">
                     Your email is successfully sent to Caitlin.
+                </div>
+            </div>
+        </div>
+    );
+
+    const toastEmailErrorNotification = (
+        <div className="toast-container top-0 end-0 p-3">
+            <div className="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div className="toast-header">
+                    <XCircleFill style={{ color: "red" }} className="rounded me-2" />
+                    <strong style={{ color: "red" }} className="me-auto">Message not sent</strong>
+                    <small className="text-body-secondary">just now</small>
+                    <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div className="toast-body">
+                    Error Occurred. Please try again later.
                 </div>
             </div>
         </div>
@@ -132,7 +148,7 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
     }
     return (
         <div className={finder ? style.container : style.container_closed}>
-            {toastEmailSentNotification}
+            {error ? toastEmailErrorNotification  : toastEmailSentNotification}
             <div className={`${style.detail_box_content} ${theme ? style.detail_box_content_day : style.detail_box_content_night}`}>
                 <div className={`${style.navigation_container} ${theme ? style.navigation_container_day : style.navigation_container_night}`}>
                     <span className={style.btn_close} onClick={handleClose}>
@@ -141,11 +157,6 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
                     <span className={style.btn_max}></span>
                 </div>
                 <div className={`${style.content_container} ${theme ? style.content_container_day : style.content_container_night} ${profileDetails ? style.content_overflow : null} ${contactDetails ? style.content_container_contact : null}`}>
-                    {
-                        loading ?
-                            loader : null
-                    }
-
                     {
                         projectContent &&
                         <div className={style.project_container}>
