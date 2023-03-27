@@ -142,8 +142,8 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
                 </div>
                 <div className={`${style.content_container} ${theme ? style.content_container_day : style.content_container_night} ${profileDetails ? style.content_overflow : null} ${contactDetails ? style.content_container_contact : null}`}>
                     {
-                    loading ? 
-                    loader : null
+                        loading ?
+                            loader : null
                     }
 
                     {
@@ -159,20 +159,21 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
                     }
 
                     {
-                        contactDetails ?
-                            <div className={`${style.contact_container}`}>
-                                <div className={style.contact_left}>
-                                    <h1 className={style.contact_title}>Contact Me</h1>
-                                </div>
-                                <form ref={form} id="contact_form" onSubmit={sendEmail} className={style.contact_right}>
-                                    <div className={style.name_input}>{nameInput}</div>
-                                    <div className={style.email_input}>{emailInput}</div>
-                                    <div className={style.message_input}>{messageInput}</div>
-                                    <div className={style.submit_button}>{submitBtn}</div>
-                                </form>
+                        loading ? loader :
+                            (contactDetails ?
+                                <div className={`${style.contact_container}`}>
+                                    <div className={style.contact_left}>
+                                        <h1 className={style.contact_title}>Contact Me</h1>
+                                    </div>
+                                    <form ref={form} id="contact_form" onSubmit={sendEmail} className={style.contact_right}>
+                                        <div className={style.name_input}>{nameInput}</div>
+                                        <div className={style.email_input}>{emailInput}</div>
+                                        <div className={style.message_input}>{messageInput}</div>
+                                        <div className={style.submit_button}>{submitBtn}</div>
+                                    </form>
 
-                            </div> :
-                            null
+                                </div> :
+                                null)
                     }
 
                     {
