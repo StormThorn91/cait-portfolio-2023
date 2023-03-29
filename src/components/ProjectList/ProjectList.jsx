@@ -1,11 +1,30 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { ProjectCard } from "../ProjectCard/ProjectCard";
 import style from "./style.module.css";
 export function ProjectList({ projectList, onClickItem }) {
+
+    const [styling, setStyling] = useState({styling: style.list_desktop});
+
     const touch = useSelector((store) => store.touchSlice.touch);
+
+     const handleProjectistStyling = () => {
+        if(projectList <= 3 && !touch) {
+            setStyling({styling: style.list_desktop});
+        }
+        else {
+            setStyling({styling: null});
+        }
+
+     }
+
+     useEffect(() => {
+        handleProjectistStyling();
+     }, [styling])
     return (
         <div>
-            <div className={`${style.list} ${(projectList.length > 3 ? null : style.list_desktop) | touch ? null : style.list_desktop}`}>
+            {console.log(projectList.length)}
+            <div className={`${style.list} ${styling}`}>
                 <div className={style.project_card_item}>
                     {
                         projectList.map((project, index) => {
