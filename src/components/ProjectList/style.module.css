@@ -34,7 +34,7 @@
 
 ::-webkit-scrollbar {
     background: transparent;
-    height: 10px
+    height: 5px
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
