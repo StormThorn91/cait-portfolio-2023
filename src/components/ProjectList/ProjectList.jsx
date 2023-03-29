@@ -4,23 +4,24 @@ import { ProjectCard } from "../ProjectCard/ProjectCard";
 import style from "./style.module.css";
 export function ProjectList({ projectList, onClickItem }) {
 
-    const [styling, setStyling] = useState({styling: style.list_desktop});
+    const [styling, setStyling] = useState("");
 
     const touch = useSelector((store) => store.touchSlice.touch);
 
      const handleProjectistStyling = () => {
-        if(projectList <= 3 && !touch) {
-            setStyling({styling: style.list_desktop});
+        if((!projectList.length > 3) && !touch) {
+            setStyling(style.list_desktop);
         }
         else {
-            setStyling({styling: null});
+            setStyling("");
         }
 
      }
 
      useEffect(() => {
         handleProjectistStyling();
-     }, [styling])
+     }, [styling]);
+     
     return (
         <div>
             {console.log(projectList.length)}
