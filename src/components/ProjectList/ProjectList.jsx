@@ -9,7 +9,7 @@ export function ProjectList({ projectList, onClickItem }) {
     const touch = useSelector((store) => store.touchSlice.touch);
 
      const handleProjectistStyling = () => {
-        if((!projectList.length > 3) && !touch) {
+        if(!(projectList.length > 3) && !touch) {
             setStyling(style.list_desktop);
         }
         else {
@@ -21,7 +21,7 @@ export function ProjectList({ projectList, onClickItem }) {
      useEffect(() => {
         handleProjectistStyling();
      }, [styling]);
-     
+
     return (
         <div>
             {console.log(projectList.length)}
