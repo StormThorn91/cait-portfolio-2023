@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { detailsReducer } from "./details/detailsSlice";
+import { errorReducer } from "./error/error-slice";
 import { finderReducer } from "./finder/finder-slice";
 import { projectReducer } from "./project/project-slice";
 
@@ -13,5 +14,6 @@ export const store = configureStore({
     finderSlice: finderReducer,
     projectSlice: projectReducer,
     detailsSlice: detailsReducer,
+    errorSlice: errorReducer,
   },
 });

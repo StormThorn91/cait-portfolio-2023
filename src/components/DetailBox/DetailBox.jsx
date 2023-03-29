@@ -10,6 +10,7 @@ import { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import * as bootstrap from 'bootstrap'
 import { CheckCircleFill, XCircleFill } from 'react-bootstrap-icons'
+import { setError } from "../../store/error/error-slice";
 
 export function DetailBox({ projectContent, contactDetails, profileDetails }) {
     const theme = useSelector((store) => store.themeSlice.theme)
@@ -19,7 +20,6 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
     const [contactEmail, setContactEmail] = useState("");
     const [contactMessage, setContactMessage] = useState("");
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -34,6 +34,25 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
 
     const handleGithubButton = () => {
         window.open('https://github.com/StormThorn91', '_blank');
+    }
+
+    const handleEmailSent = (toast, error) => {
+        setContactName("");
+        setContactEmail("");
+        setContactMessage("");
+        if (error) {
+            setError(true);
+        } 
+        else {
+            setError(false);
+        }
+
+        setTimeout(function () {
+            toast.show();
+            setLoading(false);
+            dispatch(setContact(false))
+            dispatch(setFinder(false));
+        }, 5000);
     }
 
     const sendEmail = (e) => {
@@ -51,27 +70,11 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
         emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_PUBLIC_KEY)
             .then((result) => {
                 console.log(result.text);
-                setContactName("");
-                setContactEmail("");
-                setContactMessage("");
-                setError(false);
-
-                setTimeout(function () {
-                    bsAlert.show();
-                    setLoading(false);
-                }, 5000);
+                handleEmailSent(bsAlert, false);
 
             }, (error) => {
                 console.log(error.text);
-                setContactName("");
-                setContactEmail("");
-                setContactMessage("");
-                setError(true);
-
-                setTimeout(function () {
-                    bsAlert.show();
-                    setLoading(false);
-                }, 5000);
+                handleEmailSent(bsAlert, true);
             });
     }
 
@@ -80,38 +83,6 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
             <div className={style.spinner}></div>
         </div>
     )
-
-    const toastEmailSentNotification = (
-        <div className="toast-container top-0 end-0 p-3">
-            <div className="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div className="toast-header">
-                    <CheckCircleFill style={{ color: "green" }} className="rounded me-2" />
-                    <strong style={{ color: "green" }} className="me-auto">Message Sent</strong>
-                    <small className="text-body-secondary">just now</small>
-                    <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div className="toast-body">
-                    Your email is successfully sent to Caitlin.
-                </div>
-            </div>
-        </div>
-    );
-
-    const toastEmailErrorNotification = (
-        <div className="toast-container top-0 end-0 p-3">
-            <div className="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div className="toast-header">
-                    <XCircleFill style={{ color: "red" }} className="rounded me-2" />
-                    <strong style={{ color: "red" }} className="me-auto">Message not sent</strong>
-                    <small className="text-body-secondary">just now</small>
-                    <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div className="toast-body">
-                    Error Occurred. Please try again later.
-                </div>
-            </div>
-        </div>
-    );
 
     const nameInput = (
         <div className='mb-3'>
@@ -152,7 +123,6 @@ export function DetailBox({ projectContent, contactDetails, profileDetails }) {
     }
     return (
         <div className={finder ? style.container : style.container_closed}>
-            {error ? toastEmailErrorNotification  : toastEmailSentNotification}
             <div className={`${style.detail_box_content} ${theme ? style.detail_box_content_day : style.detail_box_content_night}`}>
                 <div className={`${style.navigation_container} ${theme ? style.navigation_container_day : style.navigation_container_night}`}>
                     <span className={style.btn_close} onClick={handleClose}>
