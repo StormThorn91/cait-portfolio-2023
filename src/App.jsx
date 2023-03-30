@@ -27,7 +27,6 @@ function App() {
   const finder = useSelector((store) => store.finderSlice.finder);
   const error = useSelector((store) => store.errorSlice.error);
   const page = useSelector((store) => store.pageSlice.page);
-  const pagedList = useSelector((store) => store.paginatedSlice.paginatedList);
   const contactVisible = useSelector((store) => store.detailsSlice.contact);
   const profileVisible = useSelector((store) => store.detailsSlice.profile);
 
@@ -84,16 +83,11 @@ function App() {
     if (window.addEventListener) {
       var once = false;
       window.addEventListener('touchstart', () => {
-        if (!once) {
           once = true;
           dispatch(setTouch(once));
-        }
-        else {
-          dispatch(setTouch(false));
-        }
       });
     }
-  }, [touch]);
+  }, []);
 
   useEffect(() => {
         dispatch(setFinder(false));
