@@ -9,7 +9,6 @@ import dp from "../../assets/images/profile_pic.jpg"
 import { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import * as bootstrap from 'bootstrap'
-import { CheckCircleFill, XCircleFill } from 'react-bootstrap-icons'
 import { setError } from "../../store/error/error-slice";
 
 export function DetailBox({ projectContent, contactDetails, profileDetails }) {

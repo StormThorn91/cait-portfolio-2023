@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { ProjectCard } from "../ProjectCard/ProjectCard";
 import style from "./style.module.css";
@@ -6,8 +5,6 @@ import style from "./style.module.css";
 export function ProjectList({ paginatedList, projectList, onClickItem }) {
 
     const touch = useSelector((store) => store.touchSlice.touch);
-
-
 
     return (
         <div className={style.projectsContainer}>

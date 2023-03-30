@@ -136,7 +136,7 @@ function App() {
     <div className={`row justify-content-center ${theme ? style.container : style.container_night}`}>
       {
       window.onblur = function (e) {
-        window.scrollTo(0, 1);
+        window.scrollTo(0, 0);  
 
       }}
       <div className={theme ? style.menu_bar : style.menu_bar_night}>

@@ -22,9 +22,6 @@ export function Projects(props) {
 
     const dispatch = useDispatch();
 
-    console.log('paged' + pagedList.data.pagination.results);
-    console.log('project' + projectsList);
-
     const handleOnclick = (e, projectItem_) => {
         switch (e.detail) {
             case 1: {
