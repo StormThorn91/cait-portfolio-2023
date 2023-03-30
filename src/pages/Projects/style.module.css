@@ -71,13 +71,13 @@
 
 .nav_disabled {
     border-color: rgba(128, 128, 128, 0.5);
-    color: rgba(128, 128, 128, 0.5);
+    color: rgba(128, 128, 128, 0.2);
 }
 
 .nav_disabled:hover {
     cursor: not-allowed;
     background: transparent;
-    border-color: rgba(128, 128, 128, 0.5);
+    border-color: rgba(128, 128, 128, 0.2);
 }
 
 
