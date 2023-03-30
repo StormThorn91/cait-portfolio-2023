@@ -70,14 +70,14 @@
 }
 
 .nav_disabled {
-    border-color: gray;
+    border-color: rgba(128, 128, 128, 0.5);
     color: gray;
 }
 
 .nav_disabled:hover {
     cursor: not-allowed;
     background: transparent;
-    color: gray;
+    border-color: rgba(128, 128, 128, 0.5);
 }
 
 
