@@ -17,6 +17,7 @@ import { setFinder } from './store/finder/finder-slice';
 import { setContact, setProfile } from './store/details/detailsSlice';
 import { setError } from './store/error/error-slice';
 import { CheckCircleFill, XCircleFill } from 'react-bootstrap-icons';
+import { setNext, setPaginatedList, setPrev } from './store/project/paginated-slice';
 
 function App() {
   const images = [profile, folder, contact];
@@ -25,6 +26,8 @@ function App() {
   const touch = useSelector((store) => store.touchSlice.touch);
   const finder = useSelector((store) => store.finderSlice.finder);
   const error = useSelector((store) => store.errorSlice.error);
+  const page = useSelector((store) => store.pageSlice.page);
+  const pagedList = useSelector((store) => store.paginatedSlice.paginatedList);
   const contactVisible = useSelector((store) => store.detailsSlice.contact);
   const profileVisible = useSelector((store) => store.detailsSlice.profile);
 
@@ -32,9 +35,33 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  var pageChecker = {};
+
   const fetchAllProjects = async () => {
     const allProjects = await ProjectAPI.fetchAll();
     dispatch(setProjectList(allProjects))
+  }
+
+  const fetchPaginatedProjects =  async () => {
+    const paginatedProjects = await ProjectAPI.fetchByPage(page);
+    dispatch(setPaginatedList(paginatedProjects));
+    pageChecker = paginatedProjects;
+    
+    if(pageChecker.data.pagination.previous) {
+      dispatch(setPrev(true));
+    }
+
+    else {
+      dispatch(setPrev(false));
+    }
+
+    if(pageChecker.data.pagination.next) {
+      dispatch(setNext(true));
+    }
+
+    else {
+      dispatch(setNext(false));
+    }
   }
 
   const menuOnClick = (id) => {
@@ -75,6 +102,10 @@ function App() {
         dispatch(setContact(false));
         dispatch(setError(null));
   },[])
+
+  useEffect(() => {
+    fetchPaginatedProjects();
+  },[page]);
 
   const toastEmailSentNotification = (
     <div className="toast-container top-0 end-0 p-3">
