@@ -23,7 +23,6 @@ function App() {
   const images = [profile, folder, contact];
   const imageId = ["profile", "project", "contact"]
   const theme = useSelector((store) => store.themeSlice.theme);
-  const touch = useSelector((store) => store.touchSlice.touch);
   const finder = useSelector((store) => store.finderSlice.finder);
   const error = useSelector((store) => store.errorSlice.error);
   const page = useSelector((store) => store.pageSlice.page);
@@ -138,10 +137,10 @@ function App() {
       {
       window.onblur = function (e) {
         window.scrollTo(0, 1);
-        
+
       }}
       <div className={theme ? style.menu_bar : style.menu_bar_night}>
-        <img src={logo} alt="Caitlin Logo" onClick={() => { navigate("/") }} className={style.logo} />
+        <img src={logo} alt="Caitlin Logo" className={style.logo} />
         <ThemeSlider />
       </div>
       <div className={style.profile_contact}>
