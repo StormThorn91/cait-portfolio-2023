@@ -70,7 +70,7 @@
 }
 
 .nav_disabled {
-    border-color: rgba(128, 128, 128, 0.5);
+    border-color: rgba(128, 128, 128, 0.2);
     color: rgba(128, 128, 128, 0.2);
 }
 
