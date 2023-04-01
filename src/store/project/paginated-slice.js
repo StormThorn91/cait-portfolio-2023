@@ -6,7 +6,8 @@ export const paginatedSlice = createSlice({
         paginatedList: [],
         paginated: {},
         next: true,
-        prev: false
+        prev: false,
+        loading: false
     },
     reducers: {
         setPaginatedList: (state, action) => {
@@ -19,9 +20,13 @@ export const paginatedSlice = createSlice({
 
         setPrev: (state, action) => {
             state.prev = action.payload
+        },
+        
+        setLoading: (state, action) => {
+            state.loading = action.payload
         }
     }
 })
 
 export const paginatedReducer = paginatedSlice.reducer;
-export const { setPaginatedList, setNext, setPrev } = paginatedSlice.actions;
+export const { setPaginatedList, setNext, setPrev, setLoading } = paginatedSlice.actions;

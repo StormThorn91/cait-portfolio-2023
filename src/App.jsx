@@ -17,7 +17,7 @@ import { setFinder } from './store/finder/finder-slice';
 import { setContact, setProfile } from './store/details/detailsSlice';
 import { setError } from './store/error/error-slice';
 import { CheckCircleFill, XCircleFill } from 'react-bootstrap-icons';
-import { setNext, setPaginatedList, setPrev } from './store/project/paginated-slice';
+import { setLoading, setNext, setPaginatedList, setPrev } from './store/project/paginated-slice';
 
 function App() {
   const images = [profile, folder, contact];
@@ -37,28 +37,33 @@ function App() {
 
   const fetchAllProjects = async () => {
     const allProjects = await ProjectAPI.fetchAll();
-    dispatch(setProjectList(allProjects))
+    dispatch(setProjectList(allProjects));
   }
 
   const fetchPaginatedProjects = async () => {
+    dispatch(setLoading(true));
     const paginatedProjects = await ProjectAPI.fetchByPage(page);
     dispatch(setPaginatedList(paginatedProjects));
     pageChecker = paginatedProjects;
 
     if (pageChecker.data.pagination.previous) {
       dispatch(setPrev(true));
+      setLoading(false);
     }
 
     else {
       dispatch(setPrev(false));
+      dispatch(setLoading(false));
     }
 
     if (pageChecker.data.pagination.next) {
       dispatch(setNext(true));
+      dispatch(setLoading(false));
     }
 
     else {
       dispatch(setNext(false));
+      dispatch(setLoading(false));
     }
   }
 
